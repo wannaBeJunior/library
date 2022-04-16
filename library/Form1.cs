@@ -30,14 +30,14 @@ namespace library
             setData();
             if (errors.Count > 0)
             {
-                showErrors();
+                CErrors.showErrors(label5, this, errors);
             }
             else
             {
                 startSignin();
                 if (errors.Count > 0)
                 {
-                    showErrors();
+                    CErrors.showErrors(label5, this, errors);
                 }
             }
         }
@@ -100,16 +100,6 @@ namespace library
                 return true;
             }
             return false;
-        }
-
-        public void showErrors()
-        {
-            int height = label5.Height;
-            this.Height += errors.Count * height;
-            for (int i = 0; i < errors.Count; i++)
-            {
-                label5.Text += errors[i] + '\n';
-            }
         }
 
         public void resetForm()
