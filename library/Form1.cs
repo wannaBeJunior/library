@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using MySql.Data.MySqlClient;
+using library.classes;
 
 namespace library
 {
@@ -57,37 +58,27 @@ namespace library
 
         public void startSignin()
         {
-            MySqlConnection connecting = GetDBConnection();
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand($"SELECT * FROM `employees` WHERE `login` = {this.login}", connecting);
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-            foreach (DataRow row in table.Rows)
+            CMySql DBConnect = new CMySql();
+            List<DataRow> result = DBConnect.execSelect($"SELECT * FROM `employees` WHERE `login` = '{this.login}'");
+            if(result.Count > 0)
             {
-                MessageBox.Show(Convert.ToString(row[1]));
+                if(verifyPassword(Convert.ToString(result[0]["password"])))
+                {
+                    Form2 f2 = new Form2();
+                    this.Close();
+                    f2.Show();
+                }
             }
+
         }
 
-        public static MySqlConnection GetDBConnection(string host, int port, string database, string username, string password)
+        public bool verifyPassword(string dbPassword)
         {
-            // Connection String.
-            String connString = "Server=" + host + ";Database=" + database
-                + ";port=" + port + ";User Id=" + username + ";password=" + password;
-
-            MySqlConnection conn = new MySqlConnection(connString);
-
-            return conn;
-        }
-        public static MySqlConnection GetDBConnection()
-        {
-            string host = "localhost";
-            int port = 3306;
-            string database = "mydb";
-            string username = "root";
-            string password = "root";
-
-            return GetDBConnection(host, port, database, username, password);
+            if(dbPassword == passwordHash)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
