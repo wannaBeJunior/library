@@ -18,33 +18,48 @@ namespace library
         public string login = "";
         public string passwordHash = "";
         public List<string> errors = new List<string>();
+        public int formHeight;
         public signin()
         {
             InitializeComponent();
+            formHeight = this.Height;
         }
 
         private void doSignin(object sender, EventArgs e)
         {
             setData();
-            startSignin();
+            if (errors.Count > 0)
+            {
+                showErrors();
+            }
+            else
+            {
+                startSignin();
+                if (errors.Count > 0)
+                {
+                    showErrors();
+                }
+            }
         }
 
         private void setData()
         {
-            if(textBox1.Text.ToString() != null)
-            {
-                login = textBox1.Text.ToString();
-            }else
+            resetForm();
+            if (textBox1.Text.ToString() == "")
             {
                 errors.Add("Вы не ввели логин");
             }
-            if (textBox2.Text.ToString() != null)
+            else
             {
-                passwordHash = GetHash(textBox2.Text.ToString());
+                login = textBox1.Text.ToString();
+            }
+            if (textBox2.Text.ToString() == "")
+            {
+                errors.Add("Вы не ввели пароль");
             }
             else
             {
-                errors.Add("Вы не ввели пароль");
+                passwordHash = GetHash(textBox2.Text.ToString());
             }
         }
 
@@ -64,12 +79,18 @@ namespace library
             {
                 if(verifyPassword(Convert.ToString(result[0]["password"])))
                 {
-                    Form2 f2 = new Form2();
-                    this.Close();
-                    f2.Show();
+                    /*Form2 f2 = new Form2();
+                    f2.Show();*/
+                }
+                else
+                {
+                    errors.Add("Неправильный пароль");
                 }
             }
-
+            else
+            {
+                errors.Add("Неправильный логин");
+            }
         }
 
         public bool verifyPassword(string dbPassword)
@@ -79,6 +100,23 @@ namespace library
                 return true;
             }
             return false;
+        }
+
+        public void showErrors()
+        {
+            int height = label5.Height;
+            this.Height += errors.Count * height;
+            for (int i = 0; i < errors.Count; i++)
+            {
+                label5.Text += errors[i] + '\n';
+            }
+        }
+
+        public void resetForm()
+        {
+            this.Height = formHeight;
+            errors.Clear();
+            label5.Text = "";
         }
     }
 }
