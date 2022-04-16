@@ -1,7 +1,7 @@
 ﻿
 namespace library
 {
-    partial class Form2
+    partial class main
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,35 @@ namespace library
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(272, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(223, 23);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Введите логин/пароль";
+            // 
+            // main
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form2";
+            this.Controls.Add(this.label2);
+            this.Name = "main";
+            this.Text = "Главная";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label2;
     }
 }

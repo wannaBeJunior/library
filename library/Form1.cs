@@ -79,8 +79,9 @@ namespace library
             {
                 if(verifyPassword(Convert.ToString(result[0]["password"])))
                 {
-                    /*Form2 f2 = new Form2();
-                    f2.Show();*/
+                    main f2 = new main(this);
+                    f2.Show();
+                    this.Hide();
                 }
                 else
                 {
