@@ -13,7 +13,7 @@ namespace library.classes
     {
         public string host = "localhost";
         public int port = 3306;
-        public string database = "mydb";
+        public string database = "library";
         public string username = "root";
         public string password = "root";
         public MySqlConnection connecting;
