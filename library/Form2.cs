@@ -217,12 +217,11 @@ namespace library
             if(filteredBooks.Count != 0)
             {
                 dataGridView1.RowCount = filteredBooks.Count;
-                filteredBooks.ForEach(delegate (DataRow row) { setTable(row); });
             }else
             {
                 dataGridView1.RowCount = 1;
-                filteredBooks.ForEach(delegate (DataRow row) { setTable(row); });
             }
+            filteredBooks.ForEach(delegate (DataRow row) { setTable(row); });
         }
 
         private void tableClear()
@@ -236,6 +235,12 @@ namespace library
             tableClear();
             setSmartFilterParameters();
             resultsFiltered();
+        }
+
+        private void statisticToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            statisticForm statisticForm = new statisticForm();
+            statisticForm.Show();
         }
     }
 }

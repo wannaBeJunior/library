@@ -47,5 +47,13 @@ namespace library.classes
             }
             return this.result;
         }
+
+        public int getCount(string SqlQuery)
+        {
+            int count = 0;
+            MySqlCommand command = new MySqlCommand(SqlQuery, connecting);
+            count = Convert.ToInt32(command.ExecuteScalar());
+            return count;
+        }
     }
 }
