@@ -41,6 +41,20 @@ namespace library
             this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.smartFilterLabel = new System.Windows.Forms.Label();
+            this.bookNameLabel = new System.Windows.Forms.Label();
+            this.bookNameTextBox = new System.Windows.Forms.TextBox();
+            this.bookDateLabel = new System.Windows.Forms.Label();
+            this.bookDateTextBox = new System.Windows.Forms.TextBox();
+            this.pageCountTextBox = new System.Windows.Forms.TextBox();
+            this.pagesCountLabel = new System.Windows.Forms.Label();
+            this.authorComboBox = new System.Windows.Forms.ComboBox();
+            this.authorLabel = new System.Windows.Forms.Label();
+            this.genreLabel = new System.Windows.Forms.Label();
+            this.genresComboBox2 = new System.Windows.Forms.ComboBox();
+            this.countryLabel = new System.Windows.Forms.Label();
+            this.countryComboBox = new System.Windows.Forms.ComboBox();
+            this.filterApply = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +71,7 @@ namespace library
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(148, 78);
+            this.label1.Location = new System.Drawing.Point(262, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 23);
             this.label1.TabIndex = 3;
@@ -76,11 +90,11 @@ namespace library
             this.country,
             this.author,
             this.status});
-            this.dataGridView1.Location = new System.Drawing.Point(152, 104);
+            this.dataGridView1.Location = new System.Drawing.Point(266, 104);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(978, 334);
+            this.dataGridView1.Size = new System.Drawing.Size(978, 378);
             this.dataGridView1.TabIndex = 4;
             // 
             // id
@@ -146,11 +160,161 @@ namespace library
             this.status.Name = "status";
             this.status.Width = 125;
             // 
+            // smartFilterLabel
+            // 
+            this.smartFilterLabel.AutoSize = true;
+            this.smartFilterLabel.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.smartFilterLabel.Location = new System.Drawing.Point(12, 78);
+            this.smartFilterLabel.Name = "smartFilterLabel";
+            this.smartFilterLabel.Size = new System.Drawing.Size(156, 23);
+            this.smartFilterLabel.TabIndex = 5;
+            this.smartFilterLabel.Text = "Умный фильтр";
+            // 
+            // bookNameLabel
+            // 
+            this.bookNameLabel.AutoSize = true;
+            this.bookNameLabel.Font = new System.Drawing.Font("Century", 10F);
+            this.bookNameLabel.Location = new System.Drawing.Point(12, 104);
+            this.bookNameLabel.Name = "bookNameLabel";
+            this.bookNameLabel.Size = new System.Drawing.Size(146, 21);
+            this.bookNameLabel.TabIndex = 6;
+            this.bookNameLabel.Text = "Название книги";
+            // 
+            // bookNameTextBox
+            // 
+            this.bookNameTextBox.Location = new System.Drawing.Point(16, 129);
+            this.bookNameTextBox.Name = "bookNameTextBox";
+            this.bookNameTextBox.Size = new System.Drawing.Size(142, 22);
+            this.bookNameTextBox.TabIndex = 7;
+            // 
+            // bookDateLabel
+            // 
+            this.bookDateLabel.AutoSize = true;
+            this.bookDateLabel.Font = new System.Drawing.Font("Century", 10F);
+            this.bookDateLabel.Location = new System.Drawing.Point(12, 159);
+            this.bookDateLabel.Name = "bookDateLabel";
+            this.bookDateLabel.Size = new System.Drawing.Size(135, 21);
+            this.bookDateLabel.TabIndex = 8;
+            this.bookDateLabel.Text = "Год написания";
+            // 
+            // bookDateTextBox
+            // 
+            this.bookDateTextBox.Location = new System.Drawing.Point(16, 184);
+            this.bookDateTextBox.Name = "bookDateTextBox";
+            this.bookDateTextBox.Size = new System.Drawing.Size(142, 22);
+            this.bookDateTextBox.TabIndex = 9;
+            // 
+            // pageCountTextBox
+            // 
+            this.pageCountTextBox.Location = new System.Drawing.Point(16, 245);
+            this.pageCountTextBox.Name = "pageCountTextBox";
+            this.pageCountTextBox.Size = new System.Drawing.Size(142, 22);
+            this.pageCountTextBox.TabIndex = 11;
+            // 
+            // pagesCountLabel
+            // 
+            this.pagesCountLabel.AutoSize = true;
+            this.pagesCountLabel.Font = new System.Drawing.Font("Century", 10F);
+            this.pagesCountLabel.Location = new System.Drawing.Point(12, 220);
+            this.pagesCountLabel.Name = "pagesCountLabel";
+            this.pagesCountLabel.Size = new System.Drawing.Size(139, 21);
+            this.pagesCountLabel.TabIndex = 10;
+            this.pagesCountLabel.Text = "Кол-во страниц";
+            // 
+            // authorComboBox
+            // 
+            this.authorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.authorComboBox.FormattingEnabled = true;
+            this.authorComboBox.Items.AddRange(new object[] {
+            "Выберите автора"});
+            this.authorComboBox.Location = new System.Drawing.Point(16, 294);
+            this.authorComboBox.Name = "authorComboBox";
+            this.authorComboBox.Size = new System.Drawing.Size(121, 24);
+            this.authorComboBox.TabIndex = 12;
+            // 
+            // authorLabel
+            // 
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.Font = new System.Drawing.Font("Century", 10F);
+            this.authorLabel.Location = new System.Drawing.Point(12, 270);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(58, 21);
+            this.authorLabel.TabIndex = 13;
+            this.authorLabel.Text = "Автор";
+            // 
+            // genreLabel
+            // 
+            this.genreLabel.AutoSize = true;
+            this.genreLabel.Font = new System.Drawing.Font("Century", 10F);
+            this.genreLabel.Location = new System.Drawing.Point(12, 334);
+            this.genreLabel.Name = "genreLabel";
+            this.genreLabel.Size = new System.Drawing.Size(57, 21);
+            this.genreLabel.TabIndex = 15;
+            this.genreLabel.Text = "Жанр";
+            // 
+            // genresComboBox2
+            // 
+            this.genresComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genresComboBox2.FormattingEnabled = true;
+            this.genresComboBox2.Items.AddRange(new object[] {
+            "Выберите жанр"});
+            this.genresComboBox2.Location = new System.Drawing.Point(16, 358);
+            this.genresComboBox2.Name = "genresComboBox2";
+            this.genresComboBox2.Size = new System.Drawing.Size(121, 24);
+            this.genresComboBox2.TabIndex = 14;
+            // 
+            // countryLabel
+            // 
+            this.countryLabel.AutoSize = true;
+            this.countryLabel.Font = new System.Drawing.Font("Century", 10F);
+            this.countryLabel.Location = new System.Drawing.Point(12, 390);
+            this.countryLabel.Name = "countryLabel";
+            this.countryLabel.Size = new System.Drawing.Size(69, 21);
+            this.countryLabel.TabIndex = 17;
+            this.countryLabel.Text = "Страна";
+            // 
+            // countryComboBox
+            // 
+            this.countryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.countryComboBox.FormattingEnabled = true;
+            this.countryComboBox.Items.AddRange(new object[] {
+            "Выберите страну"});
+            this.countryComboBox.Location = new System.Drawing.Point(16, 414);
+            this.countryComboBox.Name = "countryComboBox";
+            this.countryComboBox.Size = new System.Drawing.Size(121, 24);
+            this.countryComboBox.TabIndex = 16;
+            // 
+            // filterApply
+            // 
+            this.filterApply.Location = new System.Drawing.Point(16, 450);
+            this.filterApply.Name = "filterApply";
+            this.filterApply.Size = new System.Drawing.Size(142, 32);
+            this.filterApply.TabIndex = 18;
+            this.filterApply.Text = "Применить фильтр";
+            this.filterApply.UseVisualStyleBackColor = true;
+            this.filterApply.Click += new System.EventHandler(this.filterApply_Click);
+            // 
             // main
             // 
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.Grip;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1142, 450);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1142, 494);
+            this.Controls.Add(this.filterApply);
+            this.Controls.Add(this.countryLabel);
+            this.Controls.Add(this.countryComboBox);
+            this.Controls.Add(this.genreLabel);
+            this.Controls.Add(this.genresComboBox2);
+            this.Controls.Add(this.authorLabel);
+            this.Controls.Add(this.authorComboBox);
+            this.Controls.Add(this.pageCountTextBox);
+            this.Controls.Add(this.pagesCountLabel);
+            this.Controls.Add(this.bookDateTextBox);
+            this.Controls.Add(this.bookDateLabel);
+            this.Controls.Add(this.bookNameTextBox);
+            this.Controls.Add(this.bookNameLabel);
+            this.Controls.Add(this.smartFilterLabel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -177,5 +341,19 @@ namespace library
         private System.Windows.Forms.DataGridViewTextBoxColumn country;
         private System.Windows.Forms.DataGridViewTextBoxColumn author;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.Label smartFilterLabel;
+        private System.Windows.Forms.Label bookNameLabel;
+        private System.Windows.Forms.TextBox bookNameTextBox;
+        private System.Windows.Forms.Label bookDateLabel;
+        private System.Windows.Forms.TextBox bookDateTextBox;
+        private System.Windows.Forms.TextBox pageCountTextBox;
+        private System.Windows.Forms.Label pagesCountLabel;
+        private System.Windows.Forms.ComboBox authorComboBox;
+        private System.Windows.Forms.Label authorLabel;
+        private System.Windows.Forms.Label genreLabel;
+        private System.Windows.Forms.ComboBox genresComboBox2;
+        private System.Windows.Forms.Label countryLabel;
+        private System.Windows.Forms.ComboBox countryComboBox;
+        private System.Windows.Forms.Button filterApply;
     }
 }
