@@ -354,6 +354,7 @@ namespace library
             this.addEmplToolStripMenuItem.Name = "addEmplToolStripMenuItem";
             this.addEmplToolStripMenuItem.Size = new System.Drawing.Size(277, 26);
             this.addEmplToolStripMenuItem.Text = "Добавить сотрудника";
+            this.addEmplToolStripMenuItem.Click += new System.EventHandler(this.addEmplToolStripMenuItem_Click);
             // 
             // editEmplToolStripMenuItem
             // 

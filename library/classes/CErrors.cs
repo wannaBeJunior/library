@@ -11,6 +11,7 @@ namespace library.classes
     {
         public static void showErrors(Label label, Form form, List<string> errors)
         {
+            label.Text = "";
             int height = label.Height;
             form.Height += errors.Count * height;
             for (int i = 0; i < errors.Count; i++)

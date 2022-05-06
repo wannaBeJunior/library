@@ -55,5 +55,11 @@ namespace library.classes
             count = Convert.ToInt32(command.ExecuteScalar());
             return count;
         }
+
+        public bool execInsert(string SqlQuery)
+        {
+            MySqlCommand command = new MySqlCommand(SqlQuery, connecting);
+            return Convert.ToBoolean(command.ExecuteNonQuery());
+        }
     }
 }

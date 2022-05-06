@@ -242,5 +242,11 @@ namespace library
             statisticForm statisticForm = new statisticForm();
             statisticForm.Show();
         }
+
+        private void addEmplToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addEmployeeForm addEmployeeForm = new addEmployeeForm();
+            addEmployeeForm.Show();
+        }
     }
 }
