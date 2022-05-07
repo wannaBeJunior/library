@@ -79,16 +79,6 @@ namespace library
                 errors.Add("Сотрудник с таким логином уже существует.");
                 CErrors.showErrors(errorsLabel, this, errors);
             }
-            /*if()
-            {
-                errorsLabel.ForeColor = Color.Green;
-                errorsLabel.Text = "Сотрудник добавлен в БД. \nСообщите ему логин и пароль для входа.";
-            }else
-            {
-                resetForm();
-                errors.Add("Сотрудник с таким логином уже существует.");
-                CErrors.showErrors(errorsLabel, this, errors);
-            }*/
         }
 
         static public string preparePassword(string password)
