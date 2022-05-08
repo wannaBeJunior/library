@@ -44,11 +44,11 @@ namespace library
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 9);
+            this.label1.Location = new System.Drawing.Point(111, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(387, 23);
+            this.label1.Size = new System.Drawing.Size(173, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Докажите что вы работник библиотеки";
+            this.label1.Text = "Авторизируйтесь";
             // 
             // label2
             // 
@@ -131,7 +131,7 @@ namespace library
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "signin";
-            this.Text = "Sign in";
+            this.Text = "Авторизация";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -268,11 +268,6 @@ namespace library
             addEmployeeForm.Show();
         }
 
-        private void editEmplToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if(firstHit)
