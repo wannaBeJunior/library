@@ -19,5 +19,17 @@ namespace library.classes
             }
             return false;
         }
+
+        public static int getIndexOfElementInList(string needle, List<string> haystack, string index)
+        {
+            for(int i = 0; i < haystack.Count; i++)
+            {
+                if(haystack[i] == needle)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
     }
 }

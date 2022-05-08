@@ -62,7 +62,7 @@ namespace library
 
         public void getBooks()
         {
-            books = DB.execSelect("SELECT books.name as 'book',books.id, books.authors_id, books.genres_id,books.bookDate, books.review, books.pagesCount, authors.id, concat(authors.name, ' ', authors.surname, ' ', authors.lastname) as 'authorName', genres.id, genres.name as 'genre', countries.name as 'country', countries.id, readings.books_id as 'status' FROM `books` JOIN `authors` ON `authors`.`id` = `books`.`authors_id` JOIN `genres` ON `genres`.`id` = `books`.`genres_id` JOIN `countries` ON `books`.`countries_id` = `countries`.`id` LEFT JOIN `readings` ON `books`.`id` = `readings`.`books_id`;");
+            books = DB.execSelect("SELECT books.name as 'book',books.id, books.authors_id, books.genres_id,books.bookDate, books.review, books.pagesCount, authors.id, concat(authors.name, ' ', authors.surname, ' ', authors.lastname) as 'authorName', genres.id, genres.name as 'genre', countries.name as 'country', countries.id FROM `books` JOIN `authors` ON `authors`.`id` = `books`.`authors_id` JOIN `genres` ON `genres`.`id` = `books`.`genres_id` JOIN `countries` ON `books`.`countries_id` = `countries`.`id`;");
             if (books.Count > 0)
             {
                 getAllSmartFilterParameters();
@@ -81,12 +81,6 @@ namespace library
             dataGridView1.Rows[this.booksCount].Cells[5].Value = Convert.ToString(row["genre"]);
             dataGridView1.Rows[this.booksCount].Cells[6].Value = Convert.ToString(row["country"]);
             dataGridView1.Rows[this.booksCount].Cells[7].Value = Convert.ToString(row["authorName"]);
-            string status = "Книга не доступна";
-            if (row["status"].ToString() == "")
-            {
-                status = "Книга доступна";
-            }
-            dataGridView1.Rows[this.booksCount].Cells[8].Value = status;
             this.booksCount++;
         }
 
@@ -336,11 +330,10 @@ namespace library
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void giveBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            firstHit = true;
-            getBooks();
-            firstHit = false;
+            giveBook givBookForm = new giveBook();
+            givBookForm.Show();
         }
     }
 }

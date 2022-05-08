@@ -32,15 +32,6 @@ namespace library
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.review = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pagesCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.smartFilterLabel = new System.Windows.Forms.Label();
             this.bookNameLabel = new System.Windows.Forms.Label();
             this.bookNameTextBox = new System.Windows.Forms.TextBox();
@@ -59,14 +50,21 @@ namespace library
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.giveBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emoloyeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокСотрудниковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addEmplToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addReaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выдатьКнигуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.списокСотрудниковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокЧитателейToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addReaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.review = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pagesCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -101,8 +99,7 @@ namespace library
             this.pagesCount,
             this.genre,
             this.country,
-            this.author,
-            this.status});
+            this.author});
             this.dataGridView1.Location = new System.Drawing.Point(266, 104);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -110,69 +107,6 @@ namespace library
             this.dataGridView1.Size = new System.Drawing.Size(978, 378);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Идентификатор";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 125;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Название";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.Width = 125;
-            // 
-            // bookDate
-            // 
-            this.bookDate.HeaderText = "Дата написания";
-            this.bookDate.MinimumWidth = 6;
-            this.bookDate.Name = "bookDate";
-            this.bookDate.Width = 125;
-            // 
-            // review
-            // 
-            this.review.HeaderText = "Описание";
-            this.review.MinimumWidth = 6;
-            this.review.Name = "review";
-            this.review.Width = 125;
-            // 
-            // pagesCount
-            // 
-            this.pagesCount.HeaderText = "Кол-во страниц";
-            this.pagesCount.MinimumWidth = 6;
-            this.pagesCount.Name = "pagesCount";
-            this.pagesCount.Width = 125;
-            // 
-            // genre
-            // 
-            this.genre.HeaderText = "Жанр";
-            this.genre.MinimumWidth = 6;
-            this.genre.Name = "genre";
-            this.genre.Width = 125;
-            // 
-            // country
-            // 
-            this.country.HeaderText = "Страна";
-            this.country.MinimumWidth = 6;
-            this.country.Name = "country";
-            this.country.Width = 125;
-            // 
-            // author
-            // 
-            this.author.HeaderText = "Автор";
-            this.author.MinimumWidth = 6;
-            this.author.Name = "author";
-            this.author.Width = 125;
-            // 
-            // status
-            // 
-            this.status.HeaderText = "Статус";
-            this.status.MinimumWidth = 6;
-            this.status.Name = "status";
-            this.status.Width = 125;
             // 
             // smartFilterLabel
             // 
@@ -317,7 +251,7 @@ namespace library
             this.readersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1142, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1142, 30);
             this.menuStrip1.TabIndex = 19;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -326,7 +260,7 @@ namespace library
             this.libraryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainToolStripMenuItem,
             this.statisticToolStripMenuItem,
-            this.выдатьКнигуToolStripMenuItem});
+            this.giveBookToolStripMenuItem});
             this.libraryToolStripMenuItem.Name = "libraryToolStripMenuItem";
             this.libraryToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.libraryToolStripMenuItem.Text = "Библиотека";
@@ -344,6 +278,13 @@ namespace library
             this.statisticToolStripMenuItem.Text = "Статистика";
             this.statisticToolStripMenuItem.Click += new System.EventHandler(this.statisticToolStripMenuItem_Click);
             // 
+            // giveBookToolStripMenuItem
+            // 
+            this.giveBookToolStripMenuItem.Name = "giveBookToolStripMenuItem";
+            this.giveBookToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.giveBookToolStripMenuItem.Text = "Выдать книгу";
+            this.giveBookToolStripMenuItem.Click += new System.EventHandler(this.giveBookToolStripMenuItem_Click);
+            // 
             // emoloyeesToolStripMenuItem
             // 
             this.emoloyeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -352,6 +293,12 @@ namespace library
             this.emoloyeesToolStripMenuItem.Name = "emoloyeesToolStripMenuItem";
             this.emoloyeesToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.emoloyeesToolStripMenuItem.Text = "Сотрудники";
+            // 
+            // списокСотрудниковToolStripMenuItem
+            // 
+            this.списокСотрудниковToolStripMenuItem.Name = "списокСотрудниковToolStripMenuItem";
+            this.списокСотрудниковToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.списокСотрудниковToolStripMenuItem.Text = "Список сотрудников";
             // 
             // addEmplToolStripMenuItem
             // 
@@ -369,39 +316,73 @@ namespace library
             this.readersToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
             this.readersToolStripMenuItem.Text = "Читатели";
             // 
-            // addReaderToolStripMenuItem
-            // 
-            this.addReaderToolStripMenuItem.Name = "addReaderToolStripMenuItem";
-            this.addReaderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.addReaderToolStripMenuItem.Text = "Добавить читателя";
-            // 
-            // выдатьКнигуToolStripMenuItem
-            // 
-            this.выдатьКнигуToolStripMenuItem.Name = "выдатьКнигуToolStripMenuItem";
-            this.выдатьКнигуToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.выдатьКнигуToolStripMenuItem.Text = "Выдать книгу";
-            // 
-            // списокСотрудниковToolStripMenuItem
-            // 
-            this.списокСотрудниковToolStripMenuItem.Name = "списокСотрудниковToolStripMenuItem";
-            this.списокСотрудниковToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
-            this.списокСотрудниковToolStripMenuItem.Text = "Список сотрудников";
-            // 
             // списокЧитателейToolStripMenuItem
             // 
             this.списокЧитателейToolStripMenuItem.Name = "списокЧитателейToolStripMenuItem";
             this.списокЧитателейToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.списокЧитателейToolStripMenuItem.Text = "Список читателей";
             // 
-            // button1
+            // addReaderToolStripMenuItem
             // 
-            this.button1.Location = new System.Drawing.Point(224, 104);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 23);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.addReaderToolStripMenuItem.Name = "addReaderToolStripMenuItem";
+            this.addReaderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addReaderToolStripMenuItem.Text = "Добавить читателя";
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Идентификатор";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 125;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Название";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.Width = 125;
+            // 
+            // bookDate
+            // 
+            this.bookDate.HeaderText = "Дата написания";
+            this.bookDate.MinimumWidth = 6;
+            this.bookDate.Name = "bookDate";
+            this.bookDate.Width = 125;
+            // 
+            // review
+            // 
+            this.review.HeaderText = "Описание";
+            this.review.MinimumWidth = 6;
+            this.review.Name = "review";
+            this.review.Width = 125;
+            // 
+            // pagesCount
+            // 
+            this.pagesCount.HeaderText = "Кол-во страниц";
+            this.pagesCount.MinimumWidth = 6;
+            this.pagesCount.Name = "pagesCount";
+            this.pagesCount.Width = 125;
+            // 
+            // genre
+            // 
+            this.genre.HeaderText = "Жанр";
+            this.genre.MinimumWidth = 6;
+            this.genre.Name = "genre";
+            this.genre.Width = 125;
+            // 
+            // country
+            // 
+            this.country.HeaderText = "Страна";
+            this.country.MinimumWidth = 6;
+            this.country.Name = "country";
+            this.country.Width = 125;
+            // 
+            // author
+            // 
+            this.author.HeaderText = "Автор";
+            this.author.MinimumWidth = 6;
+            this.author.Name = "author";
+            this.author.Width = 125;
             // 
             // main
             // 
@@ -410,7 +391,6 @@ namespace library
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1142, 494);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.filterApply);
             this.Controls.Add(this.countryLabel);
             this.Controls.Add(this.countryComboBox);
@@ -446,15 +426,6 @@ namespace library
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn review;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pagesCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn genre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn country;
-        private System.Windows.Forms.DataGridViewTextBoxColumn author;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.Label smartFilterLabel;
         private System.Windows.Forms.Label bookNameLabel;
         private System.Windows.Forms.TextBox bookNameTextBox;
@@ -477,9 +448,16 @@ namespace library
         private System.Windows.Forms.ToolStripMenuItem addEmplToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addReaderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem выдатьКнигуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem giveBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокСотрудниковToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокЧитателейToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn review;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pagesCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn country;
+        private System.Windows.Forms.DataGridViewTextBoxColumn author;
     }
 }
