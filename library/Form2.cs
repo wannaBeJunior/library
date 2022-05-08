@@ -31,13 +31,22 @@ namespace library
         CMySql DB = new CMySql();
 
         bool firstHit = true;
-        public main(Form form1)
+        public main(Form form1, char accessLevel)
         {
             this.form1 = form1;
             InitializeComponent();
+            checkAccessLevel(accessLevel);
             setLabelText();
             getBooks();
             firstHit = false;
+        }
+
+        public void checkAccessLevel(char accessLevel)
+        {
+            if(accessLevel.CompareTo('A') <= 0)
+            {
+                menuStrip1.Hide();
+            }
         }
 
         public void setLabelText()

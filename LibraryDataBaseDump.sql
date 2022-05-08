@@ -15,10 +15,23 @@ CREATE SCHEMA IF NOT EXISTS `library` DEFAULT CHARACTER SET utf8 ;
 USE `library` ;
 
 -- -----------------------------------------------------
--- Table `library`.`readers`
+-- Table `library`.`accessLevels`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `library`.`readers` (
+CREATE TABLE IF NOT EXISTS `library`.`accessLevels` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `access` CHAR(1) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `library`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`users` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `login` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `surname` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
@@ -28,8 +41,16 @@ CREATE TABLE IF NOT EXISTS `library`.`readers` (
   `building` VARCHAR(45) NOT NULL,
   `apartments` VARCHAR(45) NULL,
   `notes` VARCHAR(120) NULL,
+  `accessLevels_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  UNIQUE INDEX `login_UNIQUE` (`login` ASC) VISIBLE,
+  INDEX `fk_users_accessLevels1_idx` (`accessLevels_id` ASC) VISIBLE,
+  CONSTRAINT `fk_users_accessLevels1`
+    FOREIGN KEY (`accessLevels_id`)
+    REFERENCES `library`.`accessLevels` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -123,24 +144,9 @@ CREATE TABLE IF NOT EXISTS `library`.`readings` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_readings_readers1`
     FOREIGN KEY (`readers_id`)
-    REFERENCES `library`.`readers` (`id`)
+    REFERENCES `library`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `library`.`employees`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `library`.`employees` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  `surname` VARCHAR(45) NOT NULL,
-  `lastname` VARCHAR(45) NOT NULL,
-  `login` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 

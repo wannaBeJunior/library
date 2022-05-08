@@ -69,12 +69,12 @@ namespace library
         public void startSignin()
         {
             CMySql DBConnect = new CMySql();
-            List<DataRow> result = DBConnect.execSelect($"SELECT * FROM `employees` WHERE `login` = '{this.login}'");
+            List<DataRow> result = DBConnect.execSelect($"SELECT * FROM library.users JOIN `accesslevels` ON `users`.`accessLevels_id` = `accesslevels`.`id` WHERE `users`.`login` = '{this.login}';");
             if(result.Count > 0)
             {
                 if(verifyPassword(Convert.ToString(result[0]["password"])))
                 {
-                    main f2 = new main(this);
+                    main f2 = new main(this, Convert.ToChar(result[0]["access"]));
                     f2.Show();
                     this.Hide();
                 }

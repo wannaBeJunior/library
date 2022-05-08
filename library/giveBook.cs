@@ -62,7 +62,7 @@ namespace library
 
         public void getReaders()
         {
-            List<DataRow> readers = DB.execSelect("SELECT concat(readers.name, ' ', readers.surname, ' ', readers.lastname) as 'readersName', `id` FROM `readers` order by `id` asc;");
+            List<DataRow> readers = DB.execSelect("SELECT concat(users.name, ' ', users.surname, ' ', users.lastname) as 'readersName', `id` FROM `users` order by `id` asc;");
             readers.ForEach(delegate (DataRow reader) {
                 allReaders.Add(Convert.ToInt32(reader["id"]), reader["readersName"].ToString());
             });
@@ -88,10 +88,8 @@ namespace library
                 {
                     DateTime date = new DateTime();
                     dateStart = Convert.ToDateTime(DB.execSelect($"SELECT `dateEnd` FROM `readings` WHERE `books_id` = {bookId} order by `id` desc limit 1;")[0]["dateEnd"].ToString());
-                    //MessageBox.Show(dateStart.ToString("yyyy-MM-dd"));
                 }
                 DateTime dateEnd = dateStart.AddDays(days);
-                //MessageBox.Show(dateEnd.ToString("yyyy-MM-dd"));
                 try
                 {
                     DB.execInsert($"INSERT INTO `readings` (`dateStart`, `dateEnd`, `books_id`, `readers_id`) VALUES ('{dateStart.ToString("yyyy-MM-dd")}', '{dateEnd.ToString("yyyy-MM-dd")}', '{bookId}', '{readerId}')");
