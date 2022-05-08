@@ -25,12 +25,19 @@ namespace library
         public List<string> allAuthors = new List<string>();
         public List<string> allGenres = new List<string>();
         public List<string> allCountries = new List<string>();
+
+        public List<string> columns = new List<string>() { "id", "name", "bookDate", "review", "pagesCount", "genres_id", "countries_id", "authors_id" };
+
+        CMySql DB = new CMySql();
+
+        bool firstHit = true;
         public main(Form form1)
         {
             this.form1 = form1;
             InitializeComponent();
             setLabelText();
             getBooks();
+            firstHit = false;
         }
 
         public void setLabelText()
@@ -55,8 +62,7 @@ namespace library
 
         public void getBooks()
         {
-            CMySql DBbooks = new CMySql();
-            books = DBbooks.execSelect("SELECT books.name as 'book',books.id, books.authors_id, books.genres_id,books.bookDate, books.review, books.pagesCount, authors.id, concat(authors.name, ' ', authors.surname, ' ', authors.lastname) as 'authorName', genres.id, genres.name as 'genre', countries.name as 'country', countries.id, readings.books_id as 'status' FROM `books` JOIN `authors` ON `authors`.`id` = `books`.`authors_id` JOIN `genres` ON `genres`.`id` = `books`.`genres_id` JOIN `countries` ON `books`.`countries_id` = `countries`.`id` LEFT JOIN `readings` ON `books`.`id` = `readings`.`books_id`;");
+            books = DB.execSelect("SELECT books.name as 'book',books.id, books.authors_id, books.genres_id,books.bookDate, books.review, books.pagesCount, authors.id, concat(authors.name, ' ', authors.surname, ' ', authors.lastname) as 'authorName', genres.id, genres.name as 'genre', countries.name as 'country', countries.id, readings.books_id as 'status' FROM `books` JOIN `authors` ON `authors`.`id` = `books`.`authors_id` JOIN `genres` ON `genres`.`id` = `books`.`genres_id` JOIN `countries` ON `books`.`countries_id` = `countries`.`id` LEFT JOIN `readings` ON `books`.`id` = `readings`.`books_id`;");
             if (books.Count > 0)
             {
                 getAllSmartFilterParameters();
@@ -91,11 +97,19 @@ namespace library
 
         public void getAllSmartFilterParameters()
         {
-            this.books.ForEach(delegate (DataRow row)
-            {
-                allAuthors.Add(row["authorName"].ToString());
-                allGenres.Add(Convert.ToString(row["genre"]));
-                allCountries.Add(Convert.ToString(row["country"]));
+            List<DataRow> authors = DB.execSelect("SELECT concat(authors.name, ' ', authors.surname, ' ', authors.lastname) as 'authorName' FROM `authors`");
+            authors.ForEach(delegate(DataRow author) {
+                allAuthors.Add(author["authorName"].ToString());
+            });
+            
+            List<DataRow> genres = DB.execSelect("SELECT * FROM `genres`");
+            genres.ForEach(delegate (DataRow genre) {
+                allGenres.Add(genre["name"].ToString());
+            });
+
+            List<DataRow> countries = DB.execSelect("SELECT * FROM `countries`");
+            countries.ForEach(delegate (DataRow country) {
+                allCountries.Add(country["name"].ToString());
             });
 
             allAuthors.ForEach(delegate (string name) { authorComboBox.Items.Add(name); });
@@ -232,9 +246,11 @@ namespace library
 
         private void filterApply_Click(object sender, EventArgs e)
         {
+            firstHit = true;
             tableClear();
             setSmartFilterParameters();
             resultsFiltered();
+            firstHit = false;
         }
 
         private void statisticToolStripMenuItem_Click(object sender, EventArgs e)
@@ -247,6 +263,84 @@ namespace library
         {
             addEmployeeForm addEmployeeForm = new addEmployeeForm();
             addEmployeeForm.Show();
+        }
+
+        private void editEmplToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if(firstHit)
+            {
+                return;
+            }
+            int row = Convert.ToInt32(e.RowIndex);
+            int column = Convert.ToInt32(e.ColumnIndex);
+            string fieldName = "";
+            if ( row > -1 && column > -1)
+            {
+                string newText = dataGridView1.Rows[row].Cells[column].Value.ToString();
+                int id = Convert.ToInt32(dataGridView1.Rows[row].Cells[0].Value);
+                if (column == 0)
+                {
+                    errors.Add("Нельзя поменять id записи!");
+                    return;
+                }
+                if(column == 5)
+                {
+                    //Новый жанр
+                    if(!CList.findInStringList(newText, allGenres))
+                    {
+                        newText = DB.execInsert($"INSERT INTO `genres` (`name`) VALUES ('{newText}');").ToString();
+                    }
+                    else
+                    {
+                        newText = DB.getId($"SELECT `id` FROM `genres` WHERE `name` = '{newText}';");
+                    }
+                }
+                if (column == 6)
+                {
+                    //Новая страна
+                    if (!CList.findInStringList(newText, allCountries))
+                    {
+                        newText = DB.execInsert($"INSERT INTO `countries` (`name`) VALUES ('{newText}');").ToString();
+                    }
+                    else
+                    {
+                        newText = DB.getId($"SELECT `id` FROM `countries` WHERE `name` = '{newText}';");
+                    }
+                }
+                if (column == 7)
+                {
+                    //Новый автор
+                    string[] names = newText.Split(' ');
+                    if (!CList.findInStringList(newText, allAuthors))
+                    {
+                        newText = DB.execInsert($"INSERT INTO `authors` (`name`, `surname`, `lastname`) VALUES ('{names[0]}', '{names[1]}', '{names[2]}');").ToString();
+                    }
+                    else
+                    {
+                        newText = DB.getId($"SELECT `id` FROM `authors` WHERE `name` = '{names[0]}' AND `surname` = '{names[1]}' AND `lastname` = '{names[2]}';");
+                    }
+                }
+                fieldName = columns[column];
+                try
+                {
+                    DB.execUpdate($"UPDATE `books` SET `{fieldName}`='{newText}' WHERE `id` = {id};");
+                }catch
+                {
+                    MessageBox.Show("Не удалось обновить запись. Попробуйте позже!");
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            firstHit = true;
+            getBooks();
+            firstHit = false;
         }
     }
 }

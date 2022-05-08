@@ -61,10 +61,12 @@ namespace library
             this.statisticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emoloyeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addEmplToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editEmplToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addReaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editReaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выдатьКнигуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокСотрудниковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокЧитателейToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +109,7 @@ namespace library
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(978, 378);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             // 
             // id
             // 
@@ -322,7 +325,8 @@ namespace library
             // 
             this.libraryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainToolStripMenuItem,
-            this.statisticToolStripMenuItem});
+            this.statisticToolStripMenuItem,
+            this.выдатьКнигуToolStripMenuItem});
             this.libraryToolStripMenuItem.Name = "libraryToolStripMenuItem";
             this.libraryToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.libraryToolStripMenuItem.Text = "Библиотека";
@@ -343,8 +347,8 @@ namespace library
             // emoloyeesToolStripMenuItem
             // 
             this.emoloyeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addEmplToolStripMenuItem,
-            this.editEmplToolStripMenuItem});
+            this.списокСотрудниковToolStripMenuItem,
+            this.addEmplToolStripMenuItem});
             this.emoloyeesToolStripMenuItem.Name = "emoloyeesToolStripMenuItem";
             this.emoloyeesToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.emoloyeesToolStripMenuItem.Text = "Сотрудники";
@@ -352,21 +356,15 @@ namespace library
             // addEmplToolStripMenuItem
             // 
             this.addEmplToolStripMenuItem.Name = "addEmplToolStripMenuItem";
-            this.addEmplToolStripMenuItem.Size = new System.Drawing.Size(277, 26);
+            this.addEmplToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
             this.addEmplToolStripMenuItem.Text = "Добавить сотрудника";
             this.addEmplToolStripMenuItem.Click += new System.EventHandler(this.addEmplToolStripMenuItem_Click);
-            // 
-            // editEmplToolStripMenuItem
-            // 
-            this.editEmplToolStripMenuItem.Name = "editEmplToolStripMenuItem";
-            this.editEmplToolStripMenuItem.Size = new System.Drawing.Size(277, 26);
-            this.editEmplToolStripMenuItem.Text = "Редактировать сотрудника";
             // 
             // readersToolStripMenuItem
             // 
             this.readersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addReaderToolStripMenuItem,
-            this.editReaderToolStripMenuItem});
+            this.списокЧитателейToolStripMenuItem,
+            this.addReaderToolStripMenuItem});
             this.readersToolStripMenuItem.Name = "readersToolStripMenuItem";
             this.readersToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
             this.readersToolStripMenuItem.Text = "Читатели";
@@ -374,14 +372,36 @@ namespace library
             // addReaderToolStripMenuItem
             // 
             this.addReaderToolStripMenuItem.Name = "addReaderToolStripMenuItem";
-            this.addReaderToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
+            this.addReaderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.addReaderToolStripMenuItem.Text = "Добавить читателя";
             // 
-            // editReaderToolStripMenuItem
+            // выдатьКнигуToolStripMenuItem
             // 
-            this.editReaderToolStripMenuItem.Name = "editReaderToolStripMenuItem";
-            this.editReaderToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
-            this.editReaderToolStripMenuItem.Text = "Редактировать читателя";
+            this.выдатьКнигуToolStripMenuItem.Name = "выдатьКнигуToolStripMenuItem";
+            this.выдатьКнигуToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.выдатьКнигуToolStripMenuItem.Text = "Выдать книгу";
+            // 
+            // списокСотрудниковToolStripMenuItem
+            // 
+            this.списокСотрудниковToolStripMenuItem.Name = "списокСотрудниковToolStripMenuItem";
+            this.списокСотрудниковToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.списокСотрудниковToolStripMenuItem.Text = "Список сотрудников";
+            // 
+            // списокЧитателейToolStripMenuItem
+            // 
+            this.списокЧитателейToolStripMenuItem.Name = "списокЧитателейToolStripMenuItem";
+            this.списокЧитателейToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.списокЧитателейToolStripMenuItem.Text = "Список читателей";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(224, 104);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // main
             // 
@@ -390,6 +410,7 @@ namespace library
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1142, 494);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.filterApply);
             this.Controls.Add(this.countryLabel);
             this.Controls.Add(this.countryComboBox);
@@ -454,9 +475,11 @@ namespace library
         private System.Windows.Forms.ToolStripMenuItem statisticToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem emoloyeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addEmplToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editEmplToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addReaderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editReaderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem выдатьКнигуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem списокСотрудниковToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem списокЧитателейToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

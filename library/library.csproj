@@ -117,6 +117,13 @@
     <Compile Include="classes\CErrors.cs" />
     <Compile Include="classes\CMySql.cs" />
     <Compile Include="classes\CValidate.cs" />
+    <Compile Include="classes\CList.cs" />
+    <Compile Include="editEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editEmployeeForm.Designer.cs">
+      <DependentUpon>editEmployeeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +146,9 @@
     </Compile>
     <EmbeddedResource Include="addEmployeeForm.resx">
       <DependentUpon>addEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editEmployeeForm.resx">
+      <DependentUpon>editEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

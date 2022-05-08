@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,7 @@ namespace library.classes
 
         public List<DataRow> execSelect(string SqlQuery)
         {
+            List<DataRow> resultList = new List<DataRow>();
             MySqlCommand command = new MySqlCommand(SqlQuery, connecting);
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             adapter.SelectCommand = command;
@@ -43,9 +45,9 @@ namespace library.classes
             adapter.Fill(result);
             foreach (DataRow row in result.Rows)
             {
-                this.result.Add(row);
+                resultList.Add(row);
             }
-            return this.result;
+            return resultList;
         }
 
         public int getCount(string SqlQuery)
@@ -56,10 +58,26 @@ namespace library.classes
             return count;
         }
 
-        public bool execInsert(string SqlQuery)
+        public int execInsert(string SqlQuery)
         {
             MySqlCommand command = new MySqlCommand(SqlQuery, connecting);
-            return Convert.ToBoolean(command.ExecuteNonQuery());
+            command.ExecuteScalar();
+            return Convert.ToInt32(command.LastInsertedId);
+        }
+
+        public int execUpdate(string SqlQuery)
+        {
+            return execInsert(SqlQuery);
+        }
+
+        public string getId(string SqlQuery)
+        {
+            MySqlCommand command = new MySqlCommand(SqlQuery, connecting);
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                reader.Read();
+                return reader["id"].ToString();
+            }
         }
     }
 }
