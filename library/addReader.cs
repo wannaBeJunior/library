@@ -5,14 +5,14 @@ using library.classes;
 
 namespace library
 {
-    public partial class addEmployeeForm : Form
+    public partial class addReader : Form
     {
         public List<string> errors = new List<string>();
 
         CMySql DB = new CMySql();
 
         public int formHeight;
-        public addEmployeeForm()
+        public addReader()
         {
             InitializeComponent();
             formHeight = this.Height;
@@ -21,16 +21,16 @@ namespace library
         private void button1_Click(object sender, EventArgs e)
         {
             resetForm();
-            DB.addNewUser(ref errors, loginTextBox.Text, passwordTextBox.Text, nameTextBox.Text, surnameTextBox.Text, lastNameTextBox.Text, phoneNumTextBox.Text, streetTextBox.Text, buildingTextBox.Text, apartmentsTextBox.Text, '2');
-            if(errors.Count > 0)
+            DB.addNewUser(ref errors, loginTextBox.Text, passwordTextBox.Text, nameTextBox.Text, surnameTextBox.Text, lastNameTextBox.Text, phoneNumTextBox.Text, streetTextBox.Text, buildingTextBox.Text, apartmentsTextBox.Text, '1');
+            if (errors.Count > 0)
             {
                 CErrors.showErrors(errorsLabel, this, errors);
-            }else
+            }
+            else
             {
-                successLabel.Text = "Сотрудник успешно добавлен!";
+                successLabel.Text = "Читатель успешно добавлен!";
             }
         }
-
         public void resetForm()
         {
             errorsLabel.Text = "";

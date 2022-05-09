@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Media;
 using System.Windows.Forms;
 using library.classes;
 
@@ -338,6 +337,12 @@ namespace library
         {
             giveBook givBookForm = new giveBook();
             givBookForm.Show();
+        }
+
+        private void addReaderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addReader addReaderForm = new addReader();
+            addReaderForm.Show();
         }
     }
 }

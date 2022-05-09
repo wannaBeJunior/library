@@ -32,6 +32,14 @@ namespace library
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.review = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pagesCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.smartFilterLabel = new System.Windows.Forms.Label();
             this.bookNameLabel = new System.Windows.Forms.Label();
             this.bookNameTextBox = new System.Windows.Forms.TextBox();
@@ -57,14 +65,6 @@ namespace library
             this.readersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокЧитателейToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addReaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.review = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pagesCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +107,62 @@ namespace library
             this.dataGridView1.Size = new System.Drawing.Size(978, 378);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Идентификатор";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 125;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Название";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.Width = 125;
+            // 
+            // bookDate
+            // 
+            this.bookDate.HeaderText = "Дата написания";
+            this.bookDate.MinimumWidth = 6;
+            this.bookDate.Name = "bookDate";
+            this.bookDate.Width = 125;
+            // 
+            // review
+            // 
+            this.review.HeaderText = "Описание";
+            this.review.MinimumWidth = 6;
+            this.review.Name = "review";
+            this.review.Width = 125;
+            // 
+            // pagesCount
+            // 
+            this.pagesCount.HeaderText = "Кол-во страниц";
+            this.pagesCount.MinimumWidth = 6;
+            this.pagesCount.Name = "pagesCount";
+            this.pagesCount.Width = 125;
+            // 
+            // genre
+            // 
+            this.genre.HeaderText = "Жанр";
+            this.genre.MinimumWidth = 6;
+            this.genre.Name = "genre";
+            this.genre.Width = 125;
+            // 
+            // country
+            // 
+            this.country.HeaderText = "Страна";
+            this.country.MinimumWidth = 6;
+            this.country.Name = "country";
+            this.country.Width = 125;
+            // 
+            // author
+            // 
+            this.author.HeaderText = "Автор";
+            this.author.MinimumWidth = 6;
+            this.author.Name = "author";
+            this.author.Width = 125;
             // 
             // smartFilterLabel
             // 
@@ -251,7 +307,7 @@ namespace library
             this.readersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1142, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1142, 28);
             this.menuStrip1.TabIndex = 19;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -268,20 +324,20 @@ namespace library
             // mainToolStripMenuItem
             // 
             this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
-            this.mainToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mainToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.mainToolStripMenuItem.Text = "Главная";
             // 
             // statisticToolStripMenuItem
             // 
             this.statisticToolStripMenuItem.Name = "statisticToolStripMenuItem";
-            this.statisticToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.statisticToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.statisticToolStripMenuItem.Text = "Статистика";
             this.statisticToolStripMenuItem.Click += new System.EventHandler(this.statisticToolStripMenuItem_Click);
             // 
             // giveBookToolStripMenuItem
             // 
             this.giveBookToolStripMenuItem.Name = "giveBookToolStripMenuItem";
-            this.giveBookToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.giveBookToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.giveBookToolStripMenuItem.Text = "Выдать книгу";
             this.giveBookToolStripMenuItem.Click += new System.EventHandler(this.giveBookToolStripMenuItem_Click);
             // 
@@ -327,62 +383,7 @@ namespace library
             this.addReaderToolStripMenuItem.Name = "addReaderToolStripMenuItem";
             this.addReaderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.addReaderToolStripMenuItem.Text = "Добавить читателя";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Идентификатор";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 125;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Название";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.Width = 125;
-            // 
-            // bookDate
-            // 
-            this.bookDate.HeaderText = "Дата написания";
-            this.bookDate.MinimumWidth = 6;
-            this.bookDate.Name = "bookDate";
-            this.bookDate.Width = 125;
-            // 
-            // review
-            // 
-            this.review.HeaderText = "Описание";
-            this.review.MinimumWidth = 6;
-            this.review.Name = "review";
-            this.review.Width = 125;
-            // 
-            // pagesCount
-            // 
-            this.pagesCount.HeaderText = "Кол-во страниц";
-            this.pagesCount.MinimumWidth = 6;
-            this.pagesCount.Name = "pagesCount";
-            this.pagesCount.Width = 125;
-            // 
-            // genre
-            // 
-            this.genre.HeaderText = "Жанр";
-            this.genre.MinimumWidth = 6;
-            this.genre.Name = "genre";
-            this.genre.Width = 125;
-            // 
-            // country
-            // 
-            this.country.HeaderText = "Страна";
-            this.country.MinimumWidth = 6;
-            this.country.Name = "country";
-            this.country.Width = 125;
-            // 
-            // author
-            // 
-            this.author.HeaderText = "Автор";
-            this.author.MinimumWidth = 6;
-            this.author.Name = "author";
-            this.author.Width = 125;
+            this.addReaderToolStripMenuItem.Click += new System.EventHandler(this.addReaderToolStripMenuItem_Click);
             // 
             // main
             // 

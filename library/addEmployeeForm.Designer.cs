@@ -42,6 +42,16 @@ namespace library
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.errorsLabel = new System.Windows.Forms.Label();
+            this.phoneNumTextBox = new System.Windows.Forms.TextBox();
+            this.phoneNumLabel = new System.Windows.Forms.Label();
+            this.streetTextBox = new System.Windows.Forms.TextBox();
+            this.adressLabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.buildingTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.apartmentsTextBox = new System.Windows.Forms.TextBox();
+            this.successLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // addEmplLabel
@@ -66,14 +76,14 @@ namespace library
             // 
             // loginTextBox
             // 
-            this.loginTextBox.Location = new System.Drawing.Point(337, 44);
+            this.loginTextBox.Location = new System.Drawing.Point(348, 44);
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(114, 22);
             this.loginTextBox.TabIndex = 8;
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(69, 73);
+            this.nameTextBox.Location = new System.Drawing.Point(69, 105);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(114, 22);
             this.nameTextBox.TabIndex = 10;
@@ -82,7 +92,7 @@ namespace library
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century", 10F);
-            this.label2.Location = new System.Drawing.Point(12, 72);
+            this.label2.Location = new System.Drawing.Point(12, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 21);
             this.label2.TabIndex = 9;
@@ -90,7 +100,7 @@ namespace library
             // 
             // surnameTextBox
             // 
-            this.surnameTextBox.Location = new System.Drawing.Point(111, 101);
+            this.surnameTextBox.Location = new System.Drawing.Point(111, 133);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(114, 22);
             this.surnameTextBox.TabIndex = 12;
@@ -99,7 +109,7 @@ namespace library
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century", 10F);
-            this.label3.Location = new System.Drawing.Point(12, 100);
+            this.label3.Location = new System.Drawing.Point(12, 132);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 21);
             this.label3.TabIndex = 11;
@@ -107,7 +117,7 @@ namespace library
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(107, 129);
+            this.lastNameTextBox.Location = new System.Drawing.Point(107, 161);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(114, 22);
             this.lastNameTextBox.TabIndex = 14;
@@ -116,7 +126,7 @@ namespace library
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century", 10F);
-            this.label4.Location = new System.Drawing.Point(12, 128);
+            this.label4.Location = new System.Drawing.Point(12, 160);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 21);
             this.label4.TabIndex = 13;
@@ -124,7 +134,7 @@ namespace library
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(107, 157);
+            this.passwordTextBox.Location = new System.Drawing.Point(492, 75);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(114, 22);
             this.passwordTextBox.TabIndex = 16;
@@ -133,15 +143,15 @@ namespace library
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century", 10F);
-            this.label5.Location = new System.Drawing.Point(12, 156);
+            this.label5.Location = new System.Drawing.Point(12, 74);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 21);
+            this.label5.Size = new System.Drawing.Size(429, 21);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Пароль:";
+            this.label5.Text = "Пароль(более 6 символов, загланые и прописные):";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 185);
+            this.button1.Location = new System.Drawing.Point(16, 339);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 32);
             this.button1.TabIndex = 17;
@@ -154,16 +164,114 @@ namespace library
             this.errorsLabel.AutoSize = true;
             this.errorsLabel.Font = new System.Drawing.Font("Century", 10F);
             this.errorsLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorsLabel.Location = new System.Drawing.Point(12, 226);
+            this.errorsLabel.Location = new System.Drawing.Point(12, 385);
             this.errorsLabel.Name = "errorsLabel";
             this.errorsLabel.Size = new System.Drawing.Size(0, 21);
             this.errorsLabel.TabIndex = 18;
+            // 
+            // phoneNumTextBox
+            // 
+            this.phoneNumTextBox.Location = new System.Drawing.Point(170, 189);
+            this.phoneNumTextBox.Name = "phoneNumTextBox";
+            this.phoneNumTextBox.Size = new System.Drawing.Size(114, 22);
+            this.phoneNumTextBox.TabIndex = 20;
+            // 
+            // phoneNumLabel
+            // 
+            this.phoneNumLabel.AutoSize = true;
+            this.phoneNumLabel.Font = new System.Drawing.Font("Century", 10F);
+            this.phoneNumLabel.Location = new System.Drawing.Point(12, 188);
+            this.phoneNumLabel.Name = "phoneNumLabel";
+            this.phoneNumLabel.Size = new System.Drawing.Size(152, 21);
+            this.phoneNumLabel.TabIndex = 19;
+            this.phoneNumLabel.Text = "Номер телефона:";
+            // 
+            // streetTextBox
+            // 
+            this.streetTextBox.Location = new System.Drawing.Point(96, 244);
+            this.streetTextBox.Name = "streetTextBox";
+            this.streetTextBox.Size = new System.Drawing.Size(114, 22);
+            this.streetTextBox.TabIndex = 22;
+            // 
+            // adressLabel
+            // 
+            this.adressLabel.AutoSize = true;
+            this.adressLabel.Font = new System.Drawing.Font("Century", 10F);
+            this.adressLabel.Location = new System.Drawing.Point(12, 218);
+            this.adressLabel.Name = "adressLabel";
+            this.adressLabel.Size = new System.Drawing.Size(173, 21);
+            this.adressLabel.TabIndex = 21;
+            this.adressLabel.Text = "Адрес проживания:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century", 10F);
+            this.label6.Location = new System.Drawing.Point(12, 243);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 21);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Улица:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century", 10F);
+            this.label7.Location = new System.Drawing.Point(12, 271);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 21);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Дом:";
+            // 
+            // buildingTextBox
+            // 
+            this.buildingTextBox.Location = new System.Drawing.Point(67, 272);
+            this.buildingTextBox.Name = "buildingTextBox";
+            this.buildingTextBox.Size = new System.Drawing.Size(114, 22);
+            this.buildingTextBox.TabIndex = 24;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century", 10F);
+            this.label8.Location = new System.Drawing.Point(12, 299);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(94, 21);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Квартира:";
+            // 
+            // apartmentsTextBox
+            // 
+            this.apartmentsTextBox.Location = new System.Drawing.Point(121, 300);
+            this.apartmentsTextBox.Name = "apartmentsTextBox";
+            this.apartmentsTextBox.Size = new System.Drawing.Size(114, 22);
+            this.apartmentsTextBox.TabIndex = 26;
+            // 
+            // successLabel
+            // 
+            this.successLabel.AutoSize = true;
+            this.successLabel.Font = new System.Drawing.Font("Century", 10F);
+            this.successLabel.ForeColor = System.Drawing.Color.Lime;
+            this.successLabel.Location = new System.Drawing.Point(128, 350);
+            this.successLabel.Name = "successLabel";
+            this.successLabel.Size = new System.Drawing.Size(0, 21);
+            this.successLabel.TabIndex = 28;
             // 
             // addEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 265);
+            this.ClientSize = new System.Drawing.Size(820, 442);
+            this.Controls.Add(this.successLabel);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.apartmentsTextBox);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.buildingTextBox);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.streetTextBox);
+            this.Controls.Add(this.adressLabel);
+            this.Controls.Add(this.phoneNumTextBox);
+            this.Controls.Add(this.phoneNumLabel);
             this.Controls.Add(this.errorsLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.passwordTextBox);
@@ -179,7 +287,6 @@ namespace library
             this.Controls.Add(this.addEmplLabel);
             this.Name = "addEmployeeForm";
             this.Text = "Добавить сотрудника";
-            this.Load += new System.EventHandler(this.addEmployeeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,5 +307,15 @@ namespace library
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label errorsLabel;
+        private System.Windows.Forms.TextBox phoneNumTextBox;
+        private System.Windows.Forms.Label phoneNumLabel;
+        private System.Windows.Forms.TextBox streetTextBox;
+        private System.Windows.Forms.Label adressLabel;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox buildingTextBox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox apartmentsTextBox;
+        private System.Windows.Forms.Label successLabel;
     }
 }

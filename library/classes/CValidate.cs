@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
 
 namespace library.classes
 {
@@ -35,6 +33,26 @@ namespace library.classes
             if (password.Length > 6 && Regex.IsMatch(password,pattern))
                 return true;
             return false;
+        }
+
+        public static bool phoneValidate(string phone)
+        {
+            string pattern = @"^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$";
+            if (phone.Length > 6 && Regex.IsMatch(phone, pattern))
+                return true;
+            return false;
+        }
+
+        static public string preparePassword(string password)
+        {
+            if (password.Length > 0)
+            {
+                var md5 = MD5.Create();
+                var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                return Convert.ToBase64String(hash);
+            }
+            return "";
         }
     }
 }
