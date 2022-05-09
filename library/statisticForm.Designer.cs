@@ -29,6 +29,7 @@ namespace library
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(statisticForm));
             this.Label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Print = new System.Windows.Forms.Button();
@@ -71,6 +72,7 @@ namespace library
             this.Controls.Add(this.Print);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "statisticForm";
             this.Text = "Статистика";
             this.Load += new System.EventHandler(this.statisticForm_Load);

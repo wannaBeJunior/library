@@ -29,6 +29,7 @@ namespace library
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addEmployeeForm));
             this.addEmplLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.loginTextBox = new System.Windows.Forms.TextBox();
@@ -285,6 +286,7 @@ namespace library
             this.Controls.Add(this.loginTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addEmplLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "addEmployeeForm";
             this.Text = "Добавить сотрудника";
             this.ResumeLayout(false);

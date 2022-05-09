@@ -29,6 +29,7 @@ namespace library
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(allEmployees));
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -185,6 +186,7 @@ namespace library
             this.Controls.Add(this.errorsLabel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "allEmployees";
             this.Text = "Список сотрудников";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -29,6 +29,7 @@ namespace library
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -65,8 +66,8 @@ namespace library
             this.readersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addReaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.мойПрофильToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -327,20 +328,20 @@ namespace library
             // mainToolStripMenuItem
             // 
             this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
-            this.mainToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mainToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.mainToolStripMenuItem.Text = "Главная";
             // 
             // statisticToolStripMenuItem
             // 
             this.statisticToolStripMenuItem.Name = "statisticToolStripMenuItem";
-            this.statisticToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.statisticToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.statisticToolStripMenuItem.Text = "Статистика";
             this.statisticToolStripMenuItem.Click += new System.EventHandler(this.statisticToolStripMenuItem_Click);
             // 
             // giveBookToolStripMenuItem
             // 
             this.giveBookToolStripMenuItem.Name = "giveBookToolStripMenuItem";
-            this.giveBookToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.giveBookToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.giveBookToolStripMenuItem.Text = "Выдать книгу";
             this.giveBookToolStripMenuItem.Click += new System.EventHandler(this.giveBookToolStripMenuItem_Click);
             // 
@@ -391,19 +392,19 @@ namespace library
             this.мойПрофильToolStripMenuItem.Size = new System.Drawing.Size(120, 24);
             this.мойПрофильToolStripMenuItem.Text = "Мой профиль";
             // 
-            // editProfileToolStripMenuItem
-            // 
-            this.editProfileToolStripMenuItem.Name = "editProfileToolStripMenuItem";
-            this.editProfileToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
-            this.editProfileToolStripMenuItem.Text = "Редактировать профиль";
-            this.editProfileToolStripMenuItem.Click += new System.EventHandler(this.editProfileToolStripMenuItem_Click);
-            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(260, 26);
             this.toolStripMenuItem2.Text = "Мои книги";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.myBooksToolStripMenuItem_Click);
+            // 
+            // editProfileToolStripMenuItem
+            // 
+            this.editProfileToolStripMenuItem.Name = "editProfileToolStripMenuItem";
+            this.editProfileToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
+            this.editProfileToolStripMenuItem.Text = "Редактировать профиль";
+            this.editProfileToolStripMenuItem.Click += new System.EventHandler(this.editProfileToolStripMenuItem_Click);
             // 
             // main
             // 
@@ -430,6 +431,7 @@ namespace library
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "main";
             this.Text = "Главная";

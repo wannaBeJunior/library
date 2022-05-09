@@ -29,12 +29,13 @@ namespace library
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(myBooks));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.book = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,16 +53,6 @@ namespace library
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(731, 400);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 23);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Мои книги:";
             // 
             // book
             // 
@@ -95,6 +86,16 @@ namespace library
             this.dateEnd.ReadOnly = true;
             this.dateEnd.Width = 125;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 23);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Мои книги:";
+            // 
             // myBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -102,6 +103,7 @@ namespace library
             this.ClientSize = new System.Drawing.Size(762, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "myBooks";
             this.Text = "Мои книги";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

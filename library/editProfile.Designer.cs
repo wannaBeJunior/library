@@ -29,6 +29,7 @@ namespace library
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editProfile));
             this.successLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.apartmentsTextBox = new System.Windows.Forms.TextBox();
@@ -285,6 +286,7 @@ namespace library
             this.Controls.Add(this.loginTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addEmplLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "editProfile";
             this.Text = "Редактировать профиль";
             this.ResumeLayout(false);
