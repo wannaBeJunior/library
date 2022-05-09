@@ -82,11 +82,40 @@ namespace library
             int row = Convert.ToInt32(e.RowIndex);
             int column = Convert.ToInt32(e.ColumnIndex);
             string fieldName = "";
-            MessageBox.Show(row.ToString());
             if (row > -1 && column > -1)
             {
                 string newText = dataGridView1.Rows[row].Cells[column].Value.ToString();
                 int id = Convert.ToInt32(dataGridView1.Rows[row].Cells[0].Value);
+                if(column == 2)
+                {
+                    if(!CValidate.passwordValidate(newText))
+                    {
+                        errors.Add("Длина пароля должна быть больше 6 и пароль \nдолжен содержать заглавные буквы, цифры и занки препинания");
+                        return;
+                    }
+                    newText = CValidate.preparePassword(newText);
+                }
+                if (column == 3 || column == 4 || column == 5)
+                {
+                    if (!CValidate.nameValidate(newText))
+                    {
+                        errors.Add("Фамилия не может содержать числа");
+                    }
+                }
+                if(column == 1)
+                {
+                    if (!CValidate.loginValidate(newText))
+                    {
+                        errors.Add("Логин должен быть короче 45 символов, но длинее 1 символа");
+                    }
+                }
+                if(column == 7)
+                {
+                    if (!CValidate.phoneValidate(newText))
+                    {
+                        errors.Add("Некоректный номер телефона");
+                    }
+                }
                 if (column == 0)
                 {
                     errors.Add("Нельзя поменять id записи!");
@@ -101,7 +130,11 @@ namespace library
                         newText = "1";
                 }
                 fieldName = columns[column];
-                CErrors.showErrors(errorsLabel, this, errors);
+                if (errors.Count > 0)
+                {
+                    CErrors.showErrors(errorsLabel, this, errors);
+                    return;
+                }
                 try
                 {
                     DB.execUpdate($"UPDATE `users` SET `{fieldName}`='{newText}' WHERE `id` = {id};");
@@ -110,10 +143,6 @@ namespace library
                 {
                     errors.Add("Не удалось обновить запись. Попробуйте позже!");
                 }
-            }
-            if(errors.Count > 0)
-            {
-                CErrors.showErrors(errorsLabel, this, errors);
             }
         }
         public void resetForm()

@@ -77,6 +77,7 @@ namespace library.classes
 
         public bool addNewUser(ref List<string> errors, string login, string password, string name, string surname, string lastname, string phone, string street, string building, string apartments, char accessLevel)
         {
+            DateTime dateStart = DateTime.Now;
             if (!CValidate.loginValidate(login))
             {
                 errors.Add("Логин должен быть короче 45 символов, но длинее 1 символа");
@@ -106,7 +107,7 @@ namespace library.classes
                 string hashedPassword = CValidate.preparePassword(password);
                 try
                 {
-                    execInsert($"INSERT INTO `library`.`users` (`login`, `password`, `name`, `surname`, `lastname`, `dateOfRegister`, `phone`, `street`, `building`, `apartments`, `accessLevels_id`) VALUES ('{login}', '{hashedPassword}', '{name}', '{surname}', '{lastname}', '2022-08-05', '{phone}', '{street}', '{building}', '{apartments}', '{accessLevel}');");
+                    execInsert($"INSERT INTO `library`.`users` (`login`, `password`, `name`, `surname`, `lastname`, `dateOfRegister`, `phone`, `street`, `building`, `apartments`, `accessLevels_id`) VALUES ('{login}', '{hashedPassword}', '{name}', '{surname}', '{lastname}', '{dateStart.ToString("yyyy-MM-dd")}', '{phone}', '{street}', '{building}', '{apartments}', '{accessLevel}');");
                 }
                 catch
                 {
