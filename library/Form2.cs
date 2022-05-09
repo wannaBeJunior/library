@@ -344,5 +344,11 @@ namespace library
             addReader addReaderForm = new addReader();
             addReaderForm.Show();
         }
+
+        private void allEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            allEmployees allEmployeesForm = new allEmployees();
+            allEmployeesForm.Show();
+        }
     }
 }

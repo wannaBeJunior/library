@@ -120,6 +120,12 @@
     <Compile Include="addReader.Designer.cs">
       <DependentUpon>addReader.cs</DependentUpon>
     </Compile>
+    <Compile Include="allEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allEmployees.Designer.cs">
+      <DependentUpon>allEmployees.cs</DependentUpon>
+    </Compile>
     <Compile Include="classes\CErrors.cs" />
     <Compile Include="classes\CMySql.cs" />
     <Compile Include="classes\CValidate.cs" />
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="addReader.resx">
       <DependentUpon>addReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allEmployees.resx">
+      <DependentUpon>allEmployees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

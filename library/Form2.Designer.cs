@@ -307,7 +307,7 @@ namespace library
             this.readersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1142, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1142, 30);
             this.menuStrip1.TabIndex = 19;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -347,7 +347,7 @@ namespace library
             this.списокСотрудниковToolStripMenuItem,
             this.addEmplToolStripMenuItem});
             this.emoloyeesToolStripMenuItem.Name = "emoloyeesToolStripMenuItem";
-            this.emoloyeesToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
+            this.emoloyeesToolStripMenuItem.Size = new System.Drawing.Size(105, 26);
             this.emoloyeesToolStripMenuItem.Text = "Сотрудники";
             // 
             // списокСотрудниковToolStripMenuItem
@@ -355,6 +355,7 @@ namespace library
             this.списокСотрудниковToolStripMenuItem.Name = "списокСотрудниковToolStripMenuItem";
             this.списокСотрудниковToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
             this.списокСотрудниковToolStripMenuItem.Text = "Список сотрудников";
+            this.списокСотрудниковToolStripMenuItem.Click += new System.EventHandler(this.allEmployeesToolStripMenuItem_Click);
             // 
             // addEmplToolStripMenuItem
             // 
