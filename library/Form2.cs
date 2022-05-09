@@ -359,5 +359,11 @@ namespace library
             myBooks myBooksForm = new myBooks(this.userId);
             myBooksForm.Show();
         }
+
+        private void editProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editProfile editProfileForm = new editProfile(userId);
+            editProfileForm.Show();
+        }
     }
 }

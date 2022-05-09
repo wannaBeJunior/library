@@ -64,7 +64,9 @@ namespace library
             this.addEmplToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addReaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.myBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.мойПрофильToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -304,7 +306,8 @@ namespace library
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.libraryToolStripMenuItem,
             this.emoloyeesToolStripMenuItem,
-            this.readersToolStripMenuItem});
+            this.readersToolStripMenuItem,
+            this.мойПрофильToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1142, 28);
@@ -316,8 +319,7 @@ namespace library
             this.libraryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainToolStripMenuItem,
             this.statisticToolStripMenuItem,
-            this.giveBookToolStripMenuItem,
-            this.myBooksToolStripMenuItem});
+            this.giveBookToolStripMenuItem});
             this.libraryToolStripMenuItem.Name = "libraryToolStripMenuItem";
             this.libraryToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.libraryToolStripMenuItem.Text = "Библиотека";
@@ -380,12 +382,28 @@ namespace library
             this.addReaderToolStripMenuItem.Text = "Добавить читателя";
             this.addReaderToolStripMenuItem.Click += new System.EventHandler(this.addReaderToolStripMenuItem_Click);
             // 
-            // myBooksToolStripMenuItem
+            // мойПрофильToolStripMenuItem
             // 
-            this.myBooksToolStripMenuItem.Name = "myBooksToolStripMenuItem";
-            this.myBooksToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.myBooksToolStripMenuItem.Text = "Мои книги";
-            this.myBooksToolStripMenuItem.Click += new System.EventHandler(this.myBooksToolStripMenuItem_Click);
+            this.мойПрофильToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.editProfileToolStripMenuItem});
+            this.мойПрофильToolStripMenuItem.Name = "мойПрофильToolStripMenuItem";
+            this.мойПрофильToolStripMenuItem.Size = new System.Drawing.Size(120, 24);
+            this.мойПрофильToolStripMenuItem.Text = "Мой профиль";
+            // 
+            // editProfileToolStripMenuItem
+            // 
+            this.editProfileToolStripMenuItem.Name = "editProfileToolStripMenuItem";
+            this.editProfileToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
+            this.editProfileToolStripMenuItem.Text = "Редактировать профиль";
+            this.editProfileToolStripMenuItem.Click += new System.EventHandler(this.editProfileToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(260, 26);
+            this.toolStripMenuItem2.Text = "Мои книги";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.myBooksToolStripMenuItem_Click);
             // 
             // main
             // 
@@ -461,6 +479,8 @@ namespace library
         private System.Windows.Forms.DataGridViewTextBoxColumn genre;
         private System.Windows.Forms.DataGridViewTextBoxColumn country;
         private System.Windows.Forms.DataGridViewTextBoxColumn author;
-        private System.Windows.Forms.ToolStripMenuItem myBooksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem мойПрофильToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem editProfileToolStripMenuItem;
     }
 }

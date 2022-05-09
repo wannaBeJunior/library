@@ -130,6 +130,12 @@
     <Compile Include="classes\CMySql.cs" />
     <Compile Include="classes\CValidate.cs" />
     <Compile Include="classes\CList.cs" />
+    <Compile Include="editProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editProfile.Designer.cs">
+      <DependentUpon>editProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="allEmployees.resx">
       <DependentUpon>allEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editProfile.resx">
+      <DependentUpon>editProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
