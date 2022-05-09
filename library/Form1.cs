@@ -74,7 +74,7 @@ namespace library
             {
                 if(verifyPassword(Convert.ToString(result[0]["password"])))
                 {
-                    main f2 = new main(this, Convert.ToChar(result[0]["access"]));
+                    main f2 = new main(this, Convert.ToChar(result[0]["access"]), Convert.ToInt32(result[0]["id"]));
                     f2.Show();
                     this.Hide();
                 }

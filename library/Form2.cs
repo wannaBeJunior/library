@@ -30,8 +30,11 @@ namespace library
         CMySql DB = new CMySql();
 
         bool firstHit = true;
-        public main(Form form1, char accessLevel)
+
+        public int userId;
+        public main(Form form1, char accessLevel, int id)
         {
+            this.userId = id;
             this.form1 = form1;
             InitializeComponent();
             checkAccessLevel(accessLevel);
@@ -349,6 +352,12 @@ namespace library
         {
             allEmployees allEmployeesForm = new allEmployees();
             allEmployeesForm.Show();
+        }
+
+        private void myBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myBooks myBooksForm = new myBooks(this.userId);
+            myBooksForm.Show();
         }
     }
 }
