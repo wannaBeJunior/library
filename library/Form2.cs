@@ -47,7 +47,9 @@ namespace library
         {
             if(accessLevel.CompareTo('A') <= 0)
             {
-                menuStrip1.Hide();
+                libraryToolStripMenuItem.Visible = false;
+                emoloyeesToolStripMenuItem.Visible = false;
+                readersToolStripMenuItem.Visible = false;
             }
         }
 
