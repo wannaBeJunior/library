@@ -128,7 +128,7 @@ namespace library
             // 
             // phoneNumTextBox
             // 
-            this.phoneNumTextBox.Location = new System.Drawing.Point(170, 189);
+            this.phoneNumTextBox.Location = new System.Drawing.Point(184, 189);
             this.phoneNumTextBox.Name = "phoneNumTextBox";
             this.phoneNumTextBox.Size = new System.Drawing.Size(114, 22);
             this.phoneNumTextBox.TabIndex = 43;

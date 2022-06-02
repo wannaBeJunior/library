@@ -18,6 +18,7 @@ namespace library
         {
             InitializeComponent();
             formHeight = this.Height;
+            textBox2.PasswordChar = '*';
         }
 
         private void doSignin(object sender, EventArgs e)
@@ -103,6 +104,11 @@ namespace library
             this.Height = formHeight;
             errors.Clear();
             label5.Text = "";
+        }
+
+        private void signin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -20,6 +20,7 @@ namespace library
         public string authorInSmartFilter;
         public string genreInSmartFilter;
         public string countryInSmartFilter;
+        public string oldValue;
 
         public List<string> allAuthors = new List<string>();
         public List<string> allGenres = new List<string>();
@@ -32,10 +33,15 @@ namespace library
         bool firstHit = true;
 
         public int userId;
+
+        public char accessLevel;
+
+        public bool needClose = true;
         public main(Form form1, char accessLevel, int id)
         {
             this.userId = id;
             this.form1 = form1;
+            this.accessLevel = accessLevel;
             InitializeComponent();
             checkAccessLevel(accessLevel);
             setLabelText();
@@ -45,11 +51,23 @@ namespace library
 
         public void checkAccessLevel(char accessLevel)
         {
-            if(accessLevel.CompareTo('A') <= 0)
+            //admin - A
+            //Employee - C
+            //Reader - B
+            if(accessLevel == 'B')
             {
-                libraryToolStripMenuItem.Visible = false;
                 emoloyeesToolStripMenuItem.Visible = false;
                 readersToolStripMenuItem.Visible = false;
+                statisticToolStripMenuItem.Visible = false;
+                giveBookToolStripMenuItem.Visible = false;
+                addBookToolStripMenuItem.Visible = false;
+                returnBookToolStripMenuItem.Visible = false;
+            }
+            else if(accessLevel == 'C')
+            {
+                emoloyeesToolStripMenuItem.Visible = false;
+                readersToolStripMenuItem.Visible = false;
+                addBookToolStripMenuItem.Visible = false;
             }
         }
 
@@ -99,7 +117,10 @@ namespace library
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            form1.Close();
+            if(needClose)
+            {
+                form1.Close();
+            }
         }
 
         public void getAllSmartFilterParameters()
@@ -272,6 +293,11 @@ namespace library
             addEmployeeForm.Show();
         }
 
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            oldValue = dataGridView1[e.ColumnIndex, e.RowIndex].Value.ToString();
+        }
+
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if(firstHit)
@@ -280,6 +306,11 @@ namespace library
             }
             int row = Convert.ToInt32(e.RowIndex);
             int column = Convert.ToInt32(e.ColumnIndex);
+            if (accessLevel != 'A')
+            {
+                dataGridView1.Rows[row].Cells[column].Value = oldValue;
+                return;
+            }
             string fieldName = "";
             if ( row > -1 && column > -1)
             {
@@ -366,6 +397,36 @@ namespace library
         {
             editProfile editProfileForm = new editProfile(userId);
             editProfileForm.Show();
+        }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            info infoForm = new info();
+            infoForm.Show();
+        }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addBook addBookForm = new addBook();
+            addBookForm.Show();
+        }
+
+        private void changeProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            form1.Show();
+            needClose = false;
+            this.Close();
+        }
+
+        private void returnBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            returneBook returnBookForm = new returneBook();
+            returnBookForm.Show();
         }
     }
 }

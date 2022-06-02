@@ -146,5 +146,10 @@ namespace library
             errors.Clear();
             errorsLabel.Text = "";
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

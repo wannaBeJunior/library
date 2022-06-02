@@ -88,9 +88,9 @@ namespace library
             this.readersComboBox.FormattingEnabled = true;
             this.readersComboBox.Items.AddRange(new object[] {
             "Выберите читателя"});
-            this.readersComboBox.Location = new System.Drawing.Point(279, 50);
+            this.readersComboBox.Location = new System.Drawing.Point(326, 50);
             this.readersComboBox.Name = "readersComboBox";
-            this.readersComboBox.Size = new System.Drawing.Size(121, 24);
+            this.readersComboBox.Size = new System.Drawing.Size(147, 24);
             this.readersComboBox.TabIndex = 8;
             // 
             // booksComboBox
@@ -99,9 +99,9 @@ namespace library
             this.booksComboBox.FormattingEnabled = true;
             this.booksComboBox.Items.AddRange(new object[] {
             "Выберите книгу"});
-            this.booksComboBox.Location = new System.Drawing.Point(252, 84);
+            this.booksComboBox.Location = new System.Drawing.Point(284, 84);
             this.booksComboBox.Name = "booksComboBox";
-            this.booksComboBox.Size = new System.Drawing.Size(121, 24);
+            this.booksComboBox.Size = new System.Drawing.Size(147, 24);
             this.booksComboBox.TabIndex = 9;
             // 
             // daysTextBox
@@ -159,6 +159,7 @@ namespace library
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "giveBook";
             this.Text = "Выдача книг";
+            this.Load += new System.EventHandler(this.giveBook_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

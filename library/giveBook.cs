@@ -78,8 +78,10 @@ namespace library
                 int days = Convert.ToInt32(daysTextBox.Text);
                 DateTime dateStart = DateTime.Now;
                 //Проверим доступность книги
-                int count = DB.getCount($"SELECT count(id) FROM `readings` WHERE `dateEnd` > CURDATE() AND `books_id` = {bookId};");
-
+                //0 not returned
+                //1 returned
+                int count = DB.getCount($"SELECT count(id) FROM `readings` WHERE `status` = '0' AND `dateEnd` > CURDATE() AND `books_id` = {bookId};");
+                MessageBox.Show(count.ToString());
                 if (count > 0)
                 {
                     DateTime date = new DateTime();
@@ -88,8 +90,8 @@ namespace library
                 DateTime dateEnd = dateStart.AddDays(days);
                 try
                 {
-                    DB.execInsert($"INSERT INTO `readings` (`dateStart`, `dateEnd`, `books_id`, `readers_id`) VALUES ('{dateStart.ToString("yyyy-MM-dd")}', '{dateEnd.ToString("yyyy-MM-dd")}', '{bookId}', '{readerId}')");
-                    label5.Text = $"Готово! Получить книгу можно с {dateStart.ToString("yyyy-MM-dd")}";             
+                    DB.execInsert($"INSERT INTO `readings` (`dateStart`, `dateEnd`, `books_id`, `readers_id`, `status`) VALUES ('{dateStart.ToString("yyyy-MM-dd")}', '{dateEnd.ToString("yyyy-MM-dd")}', '{bookId}', '{readerId}', '0')");
+                    label5.Text = $"Готово! Получить книгу можно ориентировочно с {dateStart.ToString("yyyy-MM-dd")}";             
                 }catch
                 {
                     errors.Add("Не удалось создать запись. Попробуйте позже!");
@@ -108,6 +110,11 @@ namespace library
             this.Height = formHeight;
             errors.Clear();
             label5.Text = "";
+        }
+
+        private void giveBook_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

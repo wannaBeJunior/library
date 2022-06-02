@@ -108,6 +108,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addBook.Designer.cs">
+      <DependentUpon>addBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="addEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,12 @@
     <Compile Include="giveBook.Designer.cs">
       <DependentUpon>giveBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="info.Designer.cs">
+      <DependentUpon>info.cs</DependentUpon>
+    </Compile>
     <Compile Include="myBooks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,12 +174,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="returneBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="returneBook.Designer.cs">
+      <DependentUpon>returneBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="statisticForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="statisticForm.Designer.cs">
       <DependentUpon>statisticForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addBook.resx">
+      <DependentUpon>addBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="addEmployeeForm.resx">
       <DependentUpon>addEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +210,9 @@
     <EmbeddedResource Include="giveBook.resx">
       <DependentUpon>giveBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="info.resx">
+      <DependentUpon>info.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="myBooks.resx">
       <DependentUpon>myBooks.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +225,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="returneBook.resx">
+      <DependentUpon>returneBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="statisticForm.resx">
       <DependentUpon>statisticForm.cs</DependentUpon>
     </EmbeddedResource>

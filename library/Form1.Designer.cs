@@ -132,6 +132,7 @@ namespace library
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "signin";
             this.Text = "Авторизация";
+            this.Load += new System.EventHandler(this.signin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
