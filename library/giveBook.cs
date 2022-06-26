@@ -58,7 +58,7 @@ namespace library
 
         public void getReaders()
         {
-            List<DataRow> readers = DB.execSelect("SELECT concat(users.name, ' ', users.surname, ' ', users.lastname) as 'readersName', `id` FROM `users` order by `id` asc;");
+            List<DataRow> readers = DB.execSelect("SELECT concat(users.name, ' ', users.surname, ' ', users.lastname) as 'readersName', `id` FROM `users` order by `id` asc WHERE `reputation` > 0;");
             readers.ForEach(delegate (DataRow reader) {
                 allReaders.Add(Convert.ToInt32(reader["id"]), reader["readersName"].ToString());
             });
@@ -81,7 +81,6 @@ namespace library
                 //0 not returned
                 //1 returned
                 int count = DB.getCount($"SELECT count(id) FROM `readings` WHERE `status` = '0' AND `dateEnd` > CURDATE() AND `books_id` = {bookId};");
-                MessageBox.Show(count.ToString());
                 if (count > 0)
                 {
                     DateTime date = new DateTime();
